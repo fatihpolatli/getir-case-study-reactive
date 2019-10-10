@@ -26,7 +26,7 @@ class TestDAO {
 
    
 
-    findAll(postData, callback) {
+    findAll(postData) {
 
 
         let minValue = postData.minCount;
@@ -35,8 +35,10 @@ class TestDAO {
         let startDate = new Date(postData.startDate);
         let endDate = new Date(postData.endDate);
 
+        
 
-        this.Record.aggregate([
+
+        return this.Record.aggregate([
             {
                 $project: {
 
@@ -66,10 +68,7 @@ class TestDAO {
             {
                 $limit: 10
             }
-        ]).then(function (docs) {
-
-            callback(docs);
-        });
+        ]);
 
     }
 

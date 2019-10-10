@@ -9,13 +9,10 @@ class TestService {
 
 
 
-    findAll(postData, callback) {
+    findAll(postData) {
 
         var testDao = new TestDAO();
-        testDao.findAll(postData, function (data) {
-
-            callback(data);
-        });
+        return testDao.findAll(postData);
     }
 }
 
